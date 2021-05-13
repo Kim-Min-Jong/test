@@ -1,0 +1,29 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import = "java.io.*,java.util.*" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>reservation processing</title>
+</head>
+<body>
+	<table border="1">
+		<tr>
+			<th>요청 파라미터</th>
+			<th>값</th>
+		</tr>
+		<%
+			request.setCharacterEncoding("UTF-8");
+			Enumeration pNames= request.getParameterNames();
+			while(pNames.hasMoreElements()){
+				String name = (String)pNames.nextElement();
+				out.print("<tr><td>"+name+"</td>\n");
+				String value = request.getParameter(name);
+				out.println("<td>"+value+"</td></tr>\n");
+			}
+		%>
+	</table>
+	
+</body>
+</html>
